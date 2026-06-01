@@ -19,6 +19,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet" />
 
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23FF6600'/%3E%3Ctext x='50' y='68' font-family='Arial,sans-serif' font-size='40' font-weight='800' fill='white' text-anchor='middle'%3E5LB%3C/text%3E%3C/svg%3E" />
+
+  <!-- Apply saved theme before paint (no flash) -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("5lb-theme");
+        if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        if (t === "dark") document.documentElement.setAttribute("data-theme", "dark");
+      } catch (e) {}
+    })();
+  </script>
+
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
@@ -46,6 +60,10 @@
       <div class="header__actions">
         <button class="icon-btn" id="searchToggle" aria-label="Поиск по базе" aria-expanded="false">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+        <button class="icon-btn theme-btn" id="themeToggle" aria-label="Переключить тему" title="Светлая / тёмная тема">
+          <svg class="sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M2 12h2.5M19.5 12H22M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+          <svg class="moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
         </button>
         <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="primaryNav">
           <span></span><span></span><span></span>
@@ -248,6 +266,21 @@
           <p>Всю подготовку нужно завершить <b>до 9:50</b>. Каждая минута опоздания после этого — <b>200 ₽</b> (подробнее в разделе «Дисциплина и санкции»).</p>
         </div>
 
+        <div class="scheme reveal" role="img" aria-label="Тайминг дня: за час до смены — сообщение в чат; 9:40 — на точке за 20 минут до открытия; 9:50 — смена открыта в 1С и отчёт отправлен; 12:00 — уборка и фото витрин; 20:00–23:00 — закрытие смены ровно по графику.">
+          <div class="scheme__cap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            Тайминг дня
+            <span>ключевые отсечки</span>
+          </div>
+          <div class="ruler" aria-hidden="true">
+            <div class="ruler__stop"><span class="ruler__time">−1 ч</span><span class="ruler__dot"></span><span class="ruler__label">Сообщение в чат: «откроюсь вовремя»</span></div>
+            <div class="ruler__stop"><span class="ruler__time">9:40</span><span class="ruler__dot"></span><span class="ruler__label">На точке за 20 минут до открытия</span></div>
+            <div class="ruler__stop"><span class="ruler__time">9:50</span><span class="ruler__dot"></span><span class="ruler__label">Смена открыта в 1С, отчёт отправлен</span></div>
+            <div class="ruler__stop"><span class="ruler__time">12:00</span><span class="ruler__dot"></span><span class="ruler__label">Уборка и фото витрин в чат</span></div>
+            <div class="ruler__stop ruler__stop--end"><span class="ruler__time">20–23</span><span class="ruler__dot"></span><span class="ruler__label">Закрытие смены ровно по графику</span></div>
+          </div>
+        </div>
+
         <h3 class="sub-title">Открытие смены — по шагам</h3>
         <ol class="timeline">
           <li class="tl reveal"><span class="tl__dot">1</span><div class="tl__card">
@@ -443,6 +476,21 @@
           <div class="step reveal"><span class="step__no">5</span><h4 class="step__title">Продажа в 1С</h4><p>Пробей товар в РМК, предложи бонусную карту, прими оплату. <b>Обязательно предложи чек</b> и попроси оставить отзыв.</p></div>
         </div>
 
+        <div class="scheme reveal" role="img" aria-label="Воронка продажи из пяти этапов: 1 — приветствие; 2 — выявление потребностей; 3 — презентация товара на языке выгод; 4 — работа с возражениями; 5 — продажа в 1С, чек, бонусная карта и отзыв.">
+          <div class="scheme__cap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18l-7 8v6l-4 2v-8L3 5Z"/></svg>
+            Воронка продажи
+            <span>от контакта до сделки</span>
+          </div>
+          <div class="funnel" aria-hidden="true">
+            <div class="funnel__row"><span class="funnel__n">1</span><span class="funnel__t">Приветствие<span>контакт и доброжелательный настрой</span></span></div>
+            <div class="funnel__row"><span class="funnel__n">2</span><span class="funnel__t">Выявление потребностей<span>вопросы и активное слушание</span></span></div>
+            <div class="funnel__row"><span class="funnel__n">3</span><span class="funnel__t">Презентация<span>товар на языке выгод</span></span></div>
+            <div class="funnel__row"><span class="funnel__n">4</span><span class="funnel__t">Работа с возражениями<span>выслушать → согласиться → аргумент</span></span></div>
+            <div class="funnel__row"><span class="funnel__n">5</span><span class="funnel__t">Продажа в 1С + чек<span>бонусная карта и отзыв</span></span></div>
+          </div>
+        </div>
+
         <div class="duo">
           <div class="panel reveal">
             <h3 class="panel__title">Работа с возражениями</h3>
@@ -632,6 +680,37 @@
             <p>На основании реализации создай «Возврат товаров от клиента», проверь позиции и марки, пробей чек. Деньги: РКО / эквайринг, а по СБП — через эквайринговую операцию с видом «возврат». Сумма возврата не может превышать оплаченную.</p>
           </div></li>
         </ol>
+
+        <div class="scheme reveal" role="img" aria-label="Схема обработки заказа. Новый заказ с сайта со статусом «На согласовании» — поставь себя менеджером и переведи в «К выполнению». Затем проверь вкладку «Товары»: если товар есть на складе — ставь статус «Отгрузить», прими оплату и оформи реализацию; если товара нет — сообщи руководству, нужно перемещение товара на склад.">
+          <div class="scheme__cap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><path d="M6.5 10v4a2 2 0 0 0 2 2H14"/></svg>
+            Схема: есть ли товар на складе
+            <span>ветвление заказа</span>
+          </div>
+          <div class="flow-d" aria-hidden="true">
+            <div class="fd-node fd-node--start"><b>Новый заказ с сайта</b><span>статус «На согласовании»</span></div>
+            <div class="fd-link"></div>
+            <div class="fd-node"><b>Поставь себя менеджером</b><span>переведи в статус «К выполнению»</span></div>
+            <div class="fd-link"></div>
+            <div class="fd-node fd-node--decision">
+              <span class="fd-q"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9.1 9a3 3 0 1 1 4 2.8c-.8.3-1.1.8-1.1 1.7v.5"/><path d="M12 17h.01"/></svg>Проверь вкладку «Товары»</span>
+              <b>Товар есть на складе?</b>
+            </div>
+            <div class="fd-link"></div>
+            <div class="fd-split">
+              <div class="fd-col">
+                <span class="fd-branch-label fd-branch-label--yes">✓ Да, в наличии</span>
+                <div class="fd-link"></div>
+                <div class="fd-node fd-node--good"><b>Статус «Отгрузить»</b><span>прими оплату и оформи реализацию</span></div>
+              </div>
+              <div class="fd-col">
+                <span class="fd-branch-label fd-branch-label--no">✕ Нет на складе</span>
+                <div class="fd-link"></div>
+                <div class="fd-node fd-node--bad"><b>Сообщи руководству</b><span>нужно перемещение товара на склад</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -649,6 +728,41 @@
           <div>
             <span class="sos-banner__label">Главное правило</span>
             <b>Не потерять клиента и не потерять оплату.</b> Сообщи о ситуации в группу магазина, отметь отдел продаж (ОП) и веди таблицу «На случай сбоев в 1С».
+          </div>
+        </div>
+
+        <div class="scheme reveal" role="img" aria-label="Дерево решений при сбое на точке. Нет света или интернета — принимай оплату по QR или наличными, веди таблицу «На случай сбоев в 1С», после восстановления проведи все продажи в 1С теми же чеками и способом оплаты. Нет свободного остатка — пиши в чат «Штат 5LB» и отметь Кирилла Владимировича; если нет ответа 2–3 минуты, зафиксируй чек в таблицу и прими оплату. Ошибка 1С или бонусов — отправь фото ошибки в чат «5LB техподдержка» и отметь специалиста: по 1С — Родион или Женя, по бонусам — @sysrootix.">
+          <div class="scheme__cap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v5M12 18h.01"/></svg>
+            Что случилось — что делать
+            <span>дерево решений</span>
+          </div>
+          <div class="flow-d" aria-hidden="true">
+            <div class="fd-node fd-node--decision"><b>Сбой на точке</b><span>выбери ситуацию ниже</span></div>
+            <div class="fd-link"></div>
+            <div class="fd-split fd-split--3">
+              <div class="fd-col">
+                <span class="fd-branch-label fd-branch-label--case">Нет света / интернета</span>
+                <div class="fd-link"></div>
+                <div class="fd-node"><b>Приём оплаты по QR / нал</b><span>веди таблицу «На случай сбоев в 1С»</span></div>
+                <div class="fd-link"></div>
+                <div class="fd-node fd-node--good"><b>После — провести в 1С</b><span>теми же чеками и способом оплаты</span></div>
+              </div>
+              <div class="fd-col">
+                <span class="fd-branch-label fd-branch-label--case">Нет свободного остатка</span>
+                <div class="fd-link"></div>
+                <div class="fd-node"><b>Пиши в «Штат 5LB»</b><span>отметь Кирилла Владимировича</span></div>
+                <div class="fd-link"></div>
+                <div class="fd-node fd-node--good"><b>Нет ответа 2–3 мин</b><span>фиксируй чек в таблицу и прими оплату</span></div>
+              </div>
+              <div class="fd-col">
+                <span class="fd-branch-label fd-branch-label--case">Ошибка 1С / бонусов</span>
+                <div class="fd-link"></div>
+                <div class="fd-node"><b>Фото ошибки</b><span>в чат «5LB техподдержка»</span></div>
+                <div class="fd-link"></div>
+                <div class="fd-node fd-node--good"><b>Отметь спеца</b><span>1С — @rodion11_11 / @Opushu; бонусы — @sysrootix</span></div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -852,6 +966,35 @@
             </ul>
           </div>
         </div>
+        <div class="scheme reveal" role="img" aria-label="Схема проверки 18+. Клиент берёт товар 18+ (энергетик или предтреник) — попроси документ. Если это оригинал из списка и клиенту есть 18 — продаём как обычно. Если показывают фото документа или документ не из списка — отказываем, спокойно объясняя, что это требование закона.">
+          <div class="scheme__cap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M14 9h4M14 13h4M6 16h8"/></svg>
+            Схема проверки 18+
+            <span>энергетики и предтреники</span>
+          </div>
+          <div class="flow-d" aria-hidden="true">
+            <div class="fd-node fd-node--start"><b>Клиент берёт товар 18+</b><span>энергетик или предтреник</span></div>
+            <div class="fd-link"></div>
+            <div class="fd-node fd-node--decision">
+              <span class="fd-q"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9.1 9a3 3 0 1 1 4 2.8c-.8.3-1.1.8-1.1 1.7v.5"/><path d="M12 17h.01"/></svg>Попроси документ</span>
+              <b>Это оригинал из списка?</b>
+            </div>
+            <div class="fd-link"></div>
+            <div class="fd-split">
+              <div class="fd-col">
+                <span class="fd-branch-label fd-branch-label--yes">✓ Оригинал, 18+</span>
+                <div class="fd-link"></div>
+                <div class="fd-node fd-node--good"><b>Продаём</b><span>проводим продажу как обычно</span></div>
+              </div>
+              <div class="fd-col">
+                <span class="fd-branch-label fd-branch-label--no">✕ Фото / не из списка</span>
+                <div class="fd-link"></div>
+                <div class="fd-node fd-node--bad"><b>Отказываем</b><span>спокойно: это требование закона</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="callout callout--danger reveal">
           <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg>
           <p>Документ не подходит или клиент показывает только телефон — <b>отказываем в продаже</b>. Спокойно объясняем: это требование закона. При продаже несовершеннолетнему штраф ложится <b>лично на продавца</b>.</p>

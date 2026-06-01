@@ -113,6 +113,45 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
+  /* ---------- Theme toggle (light / dark) ---------- */
+  const themeToggle = $("#themeToggle");
+  const root = document.documentElement;
+  const themeColorMeta = $('meta[name="theme-color"]');
+
+  function applyTheme(theme) {
+    root.classList.add("theme-switching");
+    if (theme === "dark") root.setAttribute("data-theme", "dark");
+    else root.removeAttribute("data-theme");
+    if (themeColorMeta) themeColorMeta.setAttribute("content", theme === "dark" ? "#15110D" : "#FF6600");
+    if (themeToggle) themeToggle.setAttribute("aria-pressed", String(theme === "dark"));
+    // drop the no-transition guard next frame
+    requestAnimationFrame(() => requestAnimationFrame(() => root.classList.remove("theme-switching")));
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      try { localStorage.setItem("5lb-theme", next); } catch (e) {}
+      applyTheme(next);
+    });
+    themeToggle.setAttribute("aria-pressed", String(root.getAttribute("data-theme") === "dark"));
+  }
+
+  // follow OS theme changes only if the user hasn't chosen manually
+  const mq = window.matchMedia("(prefers-color-scheme: dark)");
+  (mq.addEventListener ? mq.addEventListener.bind(mq, "change") : mq.addListener.bind(mq))((e) => {
+    let saved = null;
+    try { saved = localStorage.getItem("5lb-theme"); } catch (err) {}
+    if (!saved) applyTheme(e.matches ? "dark" : "light");
+  });
+
+  /* ---------- Service worker (offline / installable) ---------- */
+  if ("serviceWorker" in navigator && location.protocol !== "file:") {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("sw.js").catch(() => {});
+    });
+  }
+
   /* =========================================================
      SEARCH across the knowledge base
      ========================================================= */

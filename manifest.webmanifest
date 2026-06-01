@@ -1,0 +1,19 @@
+{
+  "name": "5LB · База знаний продавца",
+  "short_name": "5LB База",
+  "description": "Гид продавца-консультанта 5LB: смена, продажи, касса, заказы и экстренные ситуации.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FBF8F4",
+  "theme_color": "#FF6600",
+  "lang": "ru",
+  "icons": [
+    {
+      "src": "assets/img/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
