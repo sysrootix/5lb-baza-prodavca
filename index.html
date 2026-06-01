@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#FF6600" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="googlebot" content="noindex, nofollow" />
+  <title>5LB · База знаний продавца</title>
+  <meta name="description" content="Гид для продавца-консультанта 5LB: рабочий день, дисциплина и санкции, зарплата и грейды, техника продаж, работа с кассой, заказы с сайта и действия в экстренных ситуациях — всё в одном месте." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="5LB · База знаний продавца" />
+  <meta property="og:description" content="Всё, что нужно знать продавцу-консультанту 5LB — от открытия смены до техники продаж." />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23FF6600'/%3E%3Ctext x='50' y='68' font-family='Arial,sans-serif' font-size='40' font-weight='800' fill='white' text-anchor='middle'%3E5LB%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+  <div class="progress" aria-hidden="true"><span class="progress__bar" id="progressBar"></span></div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#top" class="brand" aria-label="5LB — на главную">
+        <span class="brand__mark">5LB</span>
+        <span class="brand__sub">база&nbsp;продавца</span>
+      </a>
+
+      <nav class="nav" id="primaryNav" aria-label="Основная навигация">
+        <a href="#workday" class="nav__link">Смена</a>
+        <a href="#discipline" class="nav__link">Дисциплина</a>
+        <a href="#salary" class="nav__link">Зарплата</a>
+        <a href="#sales" class="nav__link">Продажи</a>
+        <a href="#payments" class="nav__link">Касса</a>
+        <a href="#orders" class="nav__link">Заказы</a>
+        <a href="#emergency" class="nav__link nav__link--alert">SOS</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="icon-btn" id="searchToggle" aria-label="Поиск по базе" aria-expanded="false">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="primaryNav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="search" id="searchPanel" hidden>
+      <div class="container search__inner">
+        <svg class="search__icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="search" id="searchInput" class="search__input" placeholder="Поиск по базе: смена, штраф, возврат, грейд, QR…" autocomplete="off" />
+        <span class="search__count" id="searchCount" aria-live="polite" role="status"></span>
+        <div class="search__nav">
+          <button class="search__step" id="searchPrev" aria-label="Предыдущее совпадение" title="Назад (Shift+Enter)">↑</button>
+          <button class="search__step" id="searchNext" aria-label="Следующее совпадение" title="Вперёд (Enter)">↓</button>
+        </div>
+        <button class="search__close" id="searchClose" aria-label="Закрыть поиск">✕</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <div class="hero__bg" aria-hidden="true">
+        <span class="hero__glow"></span>
+        <span class="hero__grid"></span>
+      </div>
+      <div class="container hero__inner">
+        <span class="badge reveal">
+          <span class="badge__dot"></span> База знаний · продавец-консультант 5LB
+        </span>
+        <h1 class="hero__title reveal">
+          Ты&nbsp;— лицо<br>магазина <span class="grad">5LB</span>
+        </h1>
+        <p class="hero__lead reveal">
+          Здесь собрано всё, что нужно продавцу: как открыть и закрыть смену, техника продаж,
+          работа с кассой и заказами, дисциплина, зарплата и действия в экстренных ситуациях.
+          Прочитай внимательно — это твой рабочий помощник на каждый день.
+        </p>
+        <div class="hero__cta reveal">
+          <a href="#start" class="btn btn--primary">
+            Начать
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#workday" class="btn btn--ghost">Как проходит смена</a>
+        </div>
+
+        <ul class="hero__stats reveal">
+          <li class="stat">
+            <span class="stat__num">за 20 мин</span>
+            <span class="stat__label">прийти до открытия</span>
+          </li>
+          <li class="stat">
+            <span class="stat__num">до 10 мин</span>
+            <span class="stat__label">ответ клиенту</span>
+          </li>
+          <li class="stat">
+            <span class="stat__num">5 этапов</span>
+            <span class="stat__label">в каждой продаже</span>
+          </li>
+          <li class="stat">
+            <span class="stat__num">QR-код</span>
+            <span class="stat__label">резерв при сбое</span>
+          </li>
+        </ul>
+      </div>
+      <a href="#start" class="hero__scroll" aria-label="Листай вниз"><span></span></a>
+    </section>
+
+    <!-- ============ QUICK NAV ============ -->
+    <section class="section section--start" id="start">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">С чего начать</span>
+          <h2 class="section__title">Все разделы базы знаний</h2>
+          <p class="section__desc">
+            Пройди их по порядку, если ты новенький. Если уже в команде — открывай нужный блок,
+            когда надо что-то уточнить. Возвращайся сюда в любой момент.
+          </p>
+        </div>
+
+        <div class="cards">
+          <a href="#workday" class="card reveal" data-step="01">
+            <span class="card__no">01</span>
+            <span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            <h3 class="card__title">Рабочий день</h3>
+            <p class="card__text">Открытие смены в 1С, день на точке и закрытие магазина по шагам.</p>
+            <span class="card__link">Открыть <i>→</i></span>
+          </a>
+
+          <a href="#discipline" class="card reveal" data-step="02">
+            <span class="card__no">02</span>
+            <span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 7.5 8 9 4.5-1.5 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+            <h3 class="card__title">Дисциплина и санкции</h3>
+            <p class="card__text">Опоздания, депремирования и штрафы по компании — с точными суммами.</p>
+            <span class="card__link">Открыть <i>→</i></span>
+          </a>
+
+          <a href="#salary" class="card reveal" data-step="03">
+            <span class="card__no">03</span>
+            <span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M14.5 9a2.5 2.5 0 0 0-2.5-1.8c-1.4 0-2.5.9-2.5 2s1 1.7 2.5 2 2.5.9 2.5 2-1.1 2-2.5 2A2.5 2.5 0 0 1 9.5 15"/><path d="M12 5.5v2M12 16.5v2"/></svg></span>
+            <h3 class="card__title">Зарплата и грейды</h3>
+            <p class="card__text">Ставки, проценты с продаж, аванс, нормы смен, удержания и премии.</p>
+            <span class="card__link">Открыть <i>→</i></span>
+          </a>
+
+          <a href="#sales" class="card reveal" data-step="04">
+            <span class="card__no">04</span>
+            <span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg></span>
+            <h3 class="card__title">Техника продаж</h3>
+            <p class="card__text">Пять этапов продажи, работа с возражениями и завершение сделки.</p>
+            <span class="card__link">Открыть <i>→</i></span>
+          </a>
+
+          <a href="#clients" class="card reveal" data-step="05">
+            <span class="card__no">05</span>
+            <span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg></span>
+            <h3 class="card__title">Общение с клиентами</h3>
+            <p class="card__text">Приветствие, прощание, телефон и соцсети — что можно, а что под штрафом.</p>
+            <span class="card__link">Открыть <i>→</i></span>
+          </a>
+
+          <a href="#payments" class="card reveal" data-step="06">
+            <span class="card__no">06</span>
+            <span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></span>
+            <h3 class="card__title">Касса и оплаты</h3>
+            <p class="card__text">Внесение, возврат денег, бонусная система и сертификаты.</p>
+            <span class="card__link">Открыть <i>→</i></span>
+          </a>
+
+          <a href="#orders" class="card reveal" data-step="07">
+            <span class="card__no">07</span>
+            <span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 7 9-4 9 4-9 4-9-4Z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg></span>
+            <h3 class="card__title">Заказы с сайта</h3>
+            <p class="card__text">Обработка интернет-заказов в 1С: от согласования до отгрузки и возврата.</p>
+            <span class="card__link">Открыть <i>→</i></span>
+          </a>
+
+          <a href="#emergency" class="card card--alert reveal" data-step="08">
+            <span class="card__no">08</span>
+            <span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v5"/><path d="M12 18h.01"/></svg></span>
+            <h3 class="card__title">SOS · Экстренные ситуации</h3>
+            <p class="card__text">Нет света или интернета, сбой 1С, приём оплаты по QR — действуем по инструкции.</p>
+            <span class="card__link">Открыть <i>→</i></span>
+          </a>
+
+          <a href="#standards" class="card reveal" data-step="09">
+            <span class="card__no">09</span>
+            <span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></span>
+            <h3 class="card__title">Стандарты магазина</h3>
+            <p class="card__text">Уборка, выкладка, ценники, музыка, дресс-код, ключи и экономия энергии.</p>
+            <span class="card__link">Открыть <i>→</i></span>
+          </a>
+
+          <a href="#special" class="card reveal" data-step="10">
+            <span class="card__no">10</span>
+            <span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 7.5 8 9 4.5-1.5 8-4 8-9V6l-8-3Z"/><path d="M12 9v4M12 16h.01"/></svg></span>
+            <h3 class="card__title">Особые правила</h3>
+            <p class="card__text">Продажа 18+, товар без «Честного знака», кража и коммерческая тайна.</p>
+            <span class="card__link">Открыть <i>→</i></span>
+          </a>
+
+          <div class="card card--cta reveal">
+            <span class="card__icon card__icon--ghost"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></span>
+            <h3 class="card__title">Главное</h3>
+            <p class="card__text">Ты ответственен за то, что делаешь и продаёшь. Всё начинается с дисциплины.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WORKDAY ============ -->
+    <section class="section" id="workday">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Раздел 01</span>
+          <h2 class="section__title">Рабочий день</h2>
+          <p class="section__desc">От сообщения в чат утром до закрытия кассовой смены вечером.</p>
+        </div>
+
+        <div class="rule-highlights">
+          <div class="rh reveal">
+            <span class="rh__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg></span>
+            <div><b>За час до смены</b><span>«Доброе утро, (филиал) откроется вовремя» в чат</span></div>
+          </div>
+          <div class="rh reveal">
+            <span class="rh__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            <div><b>За 20 минут</b><span>прийти на точку и подготовить рабочее место</span></div>
+          </div>
+          <div class="rh reveal">
+            <span class="rh__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+            <div><b>Смена в 1С — до :51</b><span>открытие с 51-й минуты считается опозданием</span></div>
+          </div>
+        </div>
+
+        <div class="callout callout--danger reveal">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <p>Всю подготовку нужно завершить <b>до 9:50</b>. Каждая минута опоздания после этого — <b>200 ₽</b> (подробнее в разделе «Дисциплина и санкции»).</p>
+        </div>
+
+        <h3 class="sub-title">Открытие смены — по шагам</h3>
+        <ol class="timeline">
+          <li class="tl reveal"><span class="tl__dot">1</span><div class="tl__card">
+            <h4>Пришёл — снял с охраны</h4>
+            <p>Зайди на точку, сними помещение с сигнализации по коду от руководителя, включи удлинитель и компьютер.</p>
+          </div></li>
+          <li class="tl reveal"><span class="tl__dot">2</span><div class="tl__card">
+            <h4>Запусти 1С под своим филиалом</h4>
+            <div class="path"><code>Информационные базы</code><i>→</i><code>Новая база</code><i>→</i><code>свой филиал</code></div>
+            <p>Пароль не вводим. Затем отсканируй свой штрих-код с именем.</p>
+          </div></li>
+          <li class="tl reveal"><span class="tl__dot">3</span><div class="tl__card">
+            <h4>Пересчитай кассу и открой смену</h4>
+            <p>Посчитай наличные, нажми «Открыть рабочую смену → ОК», введи сумму наличных в кассе. Включи нейтральную фоновую музыку.</p>
+          </div></li>
+          <li class="tl reveal"><span class="tl__dot">4</span><div class="tl__card">
+            <h4>Отправь отчёт об открытии</h4>
+            <p>Фото чека об открытии смены с подписью филиала — в группу «Штат 5LB» / «5LB отчёты об открытии и закрытии». Всё это делаем <b>до 9:50</b>.</p>
+          </div></li>
+          <li class="tl reveal"><span class="tl__dot">5</span><div class="tl__card">
+            <h4>До 12:00 — порядок и выкладка</h4>
+            <p>Протри пыль, вымой полы при необходимости, поправь выкладку и добавь товар со склада. Отправь фото витрин в группу <b>до 12:00</b> (корректировка выкладки — до 15:00).</p>
+          </div></li>
+          <li class="tl tl--final reveal"><span class="tl__dot">★</span><div class="tl__card">
+            <h4>Закрытие смены</h4>
+            <p>За ~15 минут до закрытия пересчитай наличные и сверь с X-отчётом, протри витрины и пол, убери стол. В 1С закрытие в два этапа: <b>закрыть рабочую смену</b> (по ФИО + штрих-код), затем <b>закрыть кассовую смену</b> (Продажи → Управление фискальным устройством). Отправь итоговый отчёт по шаблону в группу. Z-отчёт фотографируем, чеки о закрытии утилизируем.</p>
+          </div></li>
+        </ol>
+
+        <div class="callout callout--danger reveal">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg>
+          <p>Закрывать магазин нужно <b>ровно в установленное время</b> (20:00 / 21:00 / 22:00 / 23:00 — по графику филиала). Закрытие раньше хотя бы на 1 минуту — депремирование <b>5 000 ₽</b>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DISCIPLINE ============ -->
+    <section class="section section--tint" id="discipline">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Раздел 02</span>
+          <h2 class="section__title">Дисциплина и санкции</h2>
+          <p class="section__desc">Мы платим за то, чтобы ты приносил прибыль. Правила простые, но обязательные.</p>
+        </div>
+
+        <div class="duo">
+          <div class="ftable-wrap reveal">
+            <table class="ftable">
+              <caption>Опоздание на смену</caption>
+              <thead><tr><th>Опоздание</th><th>Депремирование</th></tr></thead>
+              <tbody>
+                <tr><td>0–5 минут</td><td class="amount amount--free">Бесплатно</td></tr>
+                <tr><td>с 6-й минуты</td><td class="amount">200 ₽</td></tr>
+                <tr><td>каждая следующая минута</td><td class="amount">+200 ₽</td></tr>
+                <tr><td>15 минут (максимум)</td><td class="amount">3 000 ₽</td></tr>
+                <tr class="is-max"><td>Невыход в смену</td><td class="amount">6 500 ₽</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="ftable-wrap reveal">
+            <table class="ftable">
+              <caption>Отсутствие на точке более 10 минут</caption>
+              <thead><tr><th>Периодичность</th><th>Мера</th></tr></thead>
+              <tbody>
+                <tr><td>1-й раз</td><td class="amount">Строгий выговор</td></tr>
+                <tr><td>Повторно</td><td class="amount">Депремирование в размере оклада</td></tr>
+                <tr class="is-max"><td>3-й раз</td><td class="amount">Увольнение</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="callout reveal">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+          <p>Опоздавший выходит на смену в любом случае — даже если магазин уже открыл другой сотрудник. Покидая точку, оставь на двери табличку с временем возвращения и отправь её фото в чат. Больничный лист освобождает от санкции, если предоставлен минимум за 4 часа до смены.</p>
+        </div>
+
+        <h3 class="sub-title">Штрафы, актуальные по всей компании</h3>
+        <div class="ftable-wrap reveal">
+          <table class="ftable">
+            <thead><tr><th>Нарушение</th><th>Депремирование</th></tr></thead>
+            <tbody>
+              <tr><td>Раннее закрытие точки (даже на 1 минуту)</td><td class="amount amount--red">5 000 ₽</td></tr>
+              <tr><td>Посторонние в кассовой зоне</td><td class="amount">500 ₽ / чел.</td></tr>
+              <tr><td>Неверное приветствие / прощание</td><td class="amount">100 ₽</td></tr>
+              <tr><td>Пропущенный звонок</td><td class="amount">500 ₽</td></tr>
+              <tr><td>Ответ клиенту дольше 10 минут</td><td class="amount">1 500 ₽</td></tr>
+              <tr><td>Нарушение дресс-кода</td><td class="amount">1 000 ₽</td></tr>
+              <tr><td>Неактуальные ценники</td><td class="amount">500 ₽</td></tr>
+              <tr><td>Нет музыки / не тот плейлист</td><td class="amount">500 ₽</td></tr>
+              <tr><td>Игры на рабочем компьютере</td><td class="amount">500 ₽ <span style="color:var(--muted);font-weight:600">(повтор — 2 500 ₽)</span></td></tr>
+              <tr><td>Ненадлежащая уборка</td><td class="amount">500 ₽ → 1 000 ₽ → оклад</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="sanctions">
+          <h3 class="sanctions__title">Лестница нарушений</h3>
+          <p class="sanctions__desc">При систематических нарушениях ответственность растёт.</p>
+          <ol class="ladder">
+            <li class="ladder__step reveal" data-lvl="1"><span class="ladder__lvl">1</span><div><b>Строгий выговор</b><span>за первое нарушение</span></div></li>
+            <li class="ladder__step reveal" data-lvl="3"><span class="ladder__lvl">2</span><div><b>Депремирование</b><span>вплоть до размера оклада</span></div></li>
+            <li class="ladder__step ladder__step--max reveal" data-lvl="4"><span class="ladder__lvl">3</span><div><b>Увольнение</b><span>за повторяющиеся грубые нарушения</span></div></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SALARY ============ -->
+    <section class="section" id="salary">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Раздел 03</span>
+          <h2 class="section__title">Зарплата и грейды</h2>
+          <p class="section__desc">Теперь твой доход зависит только от тебя: ставка по грейду плюс процент с продаж.</p>
+        </div>
+
+        <h3 class="sub-title">Почасовые ставки</h3>
+        <div class="grades">
+          <div class="grade reveal"><span class="grade__n">1 грейд</span><span class="grade__rate">200<span> ₽/час</span></span><span class="grade__label">старт</span></div>
+          <div class="grade reveal"><span class="grade__n">2 грейд</span><span class="grade__rate">230<span> ₽/час</span></span><span class="grade__label">скидка сотрудника 15%</span></div>
+          <div class="grade reveal"><span class="grade__n">3 грейд</span><span class="grade__rate">280<span> ₽/час</span></span><span class="grade__label">максимум</span></div>
+        </div>
+        <div class="callout callout--info reveal">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M3 4h.01"/><path d="M16 7 8 15l-4 1 1-4 8-8a2.8 2.8 0 0 1 4 4Z"/></svg>
+          <p>Грейд повышается по результатам теста: <b>раз в месяц сдаёшь простой тест</b> (не экзамен!) — чем выше балл, тем выше грейд.</p>
+        </div>
+
+        <div class="duo">
+          <div class="panel reveal">
+            <h3 class="panel__title">Проценты с продаж</h3>
+            <ul class="ticks ticks--good">
+              <li><b>1%</b> — получаешь всегда, с любой выручки за смену.</li>
+              <li><b>+1%</b> — если выполнил месячный план продаж.</li>
+              <li>В планах: <b>+0,5%</b> за план по среднему чеку и <b>+0,5%</b> за глубину чека.</li>
+            </ul>
+          </div>
+          <div class="panel reveal">
+            <h3 class="panel__title">Аванс</h3>
+            <p style="margin-bottom:14px">За первые 15 дней считаются оклад, процент за выполнение планов и штрафы/премии. Из суммы вычитается <b>20%</b> (подушка безопасности компании) — остаток выдаётся авансом.</p>
+            <div class="callout callout--info" style="margin-top:0">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+              <p><b>Пример из методички.</b> Вова за 15 дней отработал 50 часов (10 000 ₽) и заработал с продаж 10 000 ₽. После вычета 20% «подушки» получит <b>14 400 ₽</b> авансом.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="sub-title">Нормы смен</h3>
+        <div class="kpis reveal">
+          <div class="kpi"><b>15 смен</b><span>норма в месяц</span></div>
+          <div class="kpi"><b>25 смен</b><span>максимум в месяц</span></div>
+          <div class="kpi"><b>150 ₽/час</b><span>если норма не набрана</span></div>
+        </div>
+
+        <div class="duo">
+          <div class="panel reveal">
+            <h3 class="panel__title">Премии и привилегии</h3>
+            <ul class="ticks ticks--good">
+              <li>20 смен за месяц — премия <b>2 500 ₽</b>, 25 смен — <b>5 000 ₽</b>.</li>
+              <li>Скидка на товары: новички — <b>5%</b>, от 2 грейда — <b>15%</b>.</li>
+              <li>Год работы — фирменное худи в подарок.</li>
+              <li>Руководство проводит конкурсы с деньгами и призами.</li>
+            </ul>
+          </div>
+          <div class="panel reveal">
+            <h3 class="panel__title">Что удерживается из ЗП</h3>
+            <ul class="ticks ticks--danger">
+              <li>Дни рождения коллег — сумма подарка делится на весь коллектив.</li>
+              <li>Ревизия — недостача распределяется по отработанным сменам.</li>
+              <li>Недостача по кассе — на сотрудника, который её допустил.</li>
+              <li>Фирменный мерч: 2 футболки (по 2 500 ₽) и рабочая тетрадь (1 500 ₽).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SALES ============ -->
+    <section class="section section--tint" id="sales">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Раздел 04</span>
+          <h2 class="section__title">Техника продаж</h2>
+          <p class="section__desc">5 этапов — бери и делай. Выявление потребностей — это помощь, а не навязчивость.</p>
+        </div>
+
+        <div class="stepper">
+          <div class="step reveal"><span class="step__no">1</span><h4 class="step__title">Приветствие</h4><p>Отложи дела, доброжелательный взгляд и улыбка. Поздоровайся с каждым, держи дистанцию вытянутой руки. За ресепшеном не сидим.</p></div>
+          <div class="step reveal"><span class="step__no">2</span><h4 class="step__title">Потребности</h4><p>Ненавязчивые вопросы: «Что вас интересует? Какой вкус? Какой объём?» и активное слушание.</p></div>
+          <div class="step reveal"><span class="step__no">3</span><h4 class="step__title">Презентация</h4><p>Покажи товар: достоинства, характеристики, вид. Предложи пару вариантов на выбор. Не «продавливай» и не ври.</p></div>
+          <div class="step reveal"><span class="step__no">4</span><h4 class="step__title">Возражения</h4><p>Выслушать → согласиться → уточнить суть → аргументировать выгодой. Можно предложить звонок нутрициологу и напомнить про акции.</p></div>
+          <div class="step reveal"><span class="step__no">5</span><h4 class="step__title">Продажа в 1С</h4><p>Пробей товар в РМК, предложи бонусную карту, прими оплату. <b>Обязательно предложи чек</b> и попроси оставить отзыв.</p></div>
+        </div>
+
+        <div class="duo">
+          <div class="panel reveal">
+            <h3 class="panel__title">Работа с возражениями</h3>
+            <ol class="flow">
+              <li>Выслушать клиента до конца.</li>
+              <li>Эмоционально присоединиться — знак согласия с его позицией.</li>
+              <li>Задать вопрос, уточняющий суть возражения.</li>
+              <li>Аргументировать выгодой товара.</li>
+              <li>На «что-то не то» — деликатно предложить более бюджетный вариант или акцию.</li>
+            </ol>
+          </div>
+          <div class="panel reveal">
+            <h3 class="panel__title">Завершение и настрой</h3>
+            <ul class="ticks">
+              <li>Покупка состоялась — оцени выбор: «Отличный выбор!».</li>
+              <li>Покупки нет — пригласи на новый завоз, предложи отложить товар или взять номер.</li>
+              <li>Контролируй эмоции и держи себя в руках при отказе.</li>
+              <li>Лень — главный враг. Говори конкретно, без лишних слов.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="forbidden reveal">
+          <div class="forbidden__head">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="m5.6 5.6 12.8 12.8"/></svg>
+            <h3>Чего нельзя на продаже</h3>
+          </div>
+          <ul class="crosses">
+            <li>Сидеть за ресепшеном и заниматься своими делами</li>
+            <li>Подходить к клиенту со спины</li>
+            <li>Говорить неправду, если товар не подходит</li>
+            <li>Давить и навязывать ненужное</li>
+          </ul>
+        </div>
+
+        <blockquote class="quote reveal">«Этапы продаж построены на психологии принятия решения. Даже переписку мы выстраиваем по этапам продаж.»</blockquote>
+      </div>
+    </section>
+
+    <!-- ============ CLIENTS ============ -->
+    <section class="section" id="clients">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Раздел 05</span>
+          <h2 class="section__title">Общение с клиентами</h2>
+          <p class="section__desc">Клиент — наше всё. Единый стиль приветствия и быстрый ответ обязательны.</p>
+        </div>
+
+        <h3 class="sub-title">Приветствие и прощание</h3>
+        <div class="vs">
+          <div class="vs__col vs__col--yes reveal">
+            <div class="vs__title">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              Говорим так
+            </div>
+            <div class="tags">
+              <span class="tag tag--yes">Доброе утро</span>
+              <span class="tag tag--yes">Добрый день</span>
+              <span class="tag tag--yes">Добрый вечер</span>
+              <span class="tag tag--yes">Доброй ночи</span>
+              <span class="tag tag--yes">Доброго / хорошего дня</span>
+            </div>
+          </div>
+          <div class="vs__col vs__col--no reveal">
+            <div class="vs__title">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+              Под запретом
+            </div>
+            <div class="tags">
+              <span class="tag tag--no">Здравствуйте</span>
+              <span class="tag tag--no">До свидания</span>
+            </div>
+            <p class="note" style="margin-top:18px">Нарушение единого стиля — депремирование 100 ₽. Контроль по камерам и при визитах руководства.</p>
+          </div>
+        </div>
+
+        <div class="duo">
+          <div class="panel reveal">
+            <h3 class="panel__title">Телефон и звонки</h3>
+            <ul class="ticks">
+              <li>Отвечаем с рабочего телефона: «Добрый день! Магазин 5LB по адресу…».</li>
+              <li>На звонки и сообщения отвечаем в течение <b>10 минут</b>.</li>
+              <li>Если с тобой покупатель — ответь: «Добрый день, свяжемся чуть позже».</li>
+              <li>Пропустил звонок — перезвони; ответ дольше 10 минут грозит штрафом 1 500 ₽.</li>
+            </ul>
+          </div>
+          <div class="panel reveal">
+            <h3 class="panel__title">Соцсети и переписка</h3>
+            <ul class="ticks">
+              <li>Всем отвечаем <b>по шаблону</b>, общаемся просто и на равных.</li>
+              <li>Никаких голосовых сообщений.</li>
+              <li>Перечитай сообщение перед отправкой: клиент поймёт, что ты имел в виду?</li>
+              <li>Соблюдай этапы продаж даже в переписке.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout reveal">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L7.6 9.8a16 16 0 0 0 6 6l1.4-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg>
+          <p>Горячая линия: <b>+7 924 151 25 55</b>. Предложения поставщиков направляем на корпоративную почту <b>sp5lb27@mail.ru</b>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PAYMENTS ============ -->
+    <section class="section section--tint" id="payments">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Раздел 06</span>
+          <h2 class="section__title">Касса и оплаты</h2>
+          <p class="section__desc">Внесение размена, возвраты, бонусы и сертификаты — всё через 1С.</p>
+        </div>
+
+        <div class="accordion" id="payAccordion">
+          <div class="acc">
+            <button class="acc__head" aria-expanded="false"><span class="acc__no">1</span><span class="acc__title">Внесение разменных денег</span><span class="acc__chevron" aria-hidden="true"></span></button>
+            <div class="acc__panel"><div style="padding:4px 24px 26px">
+              <p style="margin-bottom:14px">Пересчитай сумму каждого номинала и запиши итог размена. Затем в 1С:</p>
+              <div class="path"><code>Операции с ККМ</code><i>→</i><code>Внесение</code><i>→</i><code>сверить сумму</code><i>→</i><code>вписать сумму</code><i>→</i><code>чек</code></div>
+              <p style="margin-top:14px">Фото чека о внесении — в группу точки. Если суммы не сходятся — сообщи в чат с отметкой руководителя.</p>
+            </div></div>
+          </div>
+
+          <div class="acc">
+            <button class="acc__head" aria-expanded="false"><span class="acc__no">2</span><span class="acc__title">Возврат денег покупателю</span><span class="acc__chevron" aria-hidden="true"></span></button>
+            <div class="acc__panel"><ul class="ticks" style="padding:4px 24px 26px">
+              <li><b>1С → Возврат по чеку</b> → найти нужный чек и открыть его.</li>
+              <li>Оплата была наличными — выдаём наличные, карту к терминалу не прикладываем.</li>
+              <li>Возврат по терминалу — только на ту карту, которой платили.</li>
+              <li>Оплата была по СБП — запрос на возврат старшему продавцу (дата, время, точка, сумма). Возьми у клиента номер телефона и сообщи, что свяжемся.</li>
+            </ul></div>
+          </div>
+
+          <div class="acc">
+            <button class="acc__head" aria-expanded="false"><span class="acc__no">3</span><span class="acc__title">Бонусная система</span><span class="acc__chevron" aria-hidden="true"></span></button>
+            <div class="acc__panel"><ul class="ticks" style="padding:4px 24px 26px">
+              <li>Бонусная карта заводится <b>каждому</b> покупателю, независимо от суммы.</li>
+              <li>Оформление: покупатель сканирует QR на тейбл-тенте → бот <b>@pro_5lb_bot</b> → заполняет данные.</li>
+              <li>Списать можно до <b>30%</b> от суммы покупки.</li>
+              <li>Исключение: сигареты, сигариллы и бустеры — списание и скидка не действуют.</li>
+              <li>Все операции с бонусами (кроме начисления) — через QR-код.</li>
+            </ul></div>
+          </div>
+
+          <div class="acc">
+            <button class="acc__head" aria-expanded="false"><span class="acc__no">4</span><span class="acc__title">Сертификаты</span><span class="acc__chevron" aria-hidden="true"></span></button>
+            <div class="acc__panel"><div style="padding:4px 24px 26px">
+              <p style="margin-bottom:10px"><b>Продажа сертификата:</b></p>
+              <div class="path"><code>Прочие операции с ККМ</code><i>→</i><code>Продажи</code><i>→</i><code>Сертификат</code><i>→</i><code>номер</code></div>
+              <p style="margin:16px 0 10px"><b>Оплата сертификатом:</b></p>
+              <div class="path"><code>пикаем позиции</code><i>→</i><code>Оплата сертификатом</code><i>→</i><code>номер</code><i>→</i><code>Списать</code></div>
+              <p style="margin-top:14px">Если средств на сертификате не хватает — добор картой или наличными.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ORDERS ============ -->
+    <section class="section" id="orders">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Раздел 07</span>
+          <h2 class="section__title">Заказы с сайта</h2>
+          <p class="section__desc">Интернет-заказы приходят в 1С: Управление торговлей 11.5 — раздел «Продажи → Заказы клиентов».</p>
+        </div>
+
+        <ol class="timeline">
+          <li class="tl reveal"><span class="tl__dot">1</span><div class="tl__card">
+            <h4>Проверь новый заказ</h4>
+            <p>Заказ приходит со статусом «На согласовании». Проверь состав, поставь себя в реквизит «Менеджер» и переведи в статус <b>«К выполнению»</b>.</p>
+          </div></li>
+          <li class="tl reveal"><span class="tl__dot">2</span><div class="tl__card">
+            <h4>Проверь наличие товара</h4>
+            <p>На вкладке «Товары» смотри доступность на складе. Есть в наличии — ставь <b>«Отгрузить»</b> вместо «К обеспечению». Нет — сообщи руководству для перемещения.</p>
+          </div></li>
+          <li class="tl reveal"><span class="tl__dot">3</span><div class="tl__card">
+            <h4>Прими оплату</h4>
+            <p>На основании заказа: <b>ПКО</b> (наличные), <b>эквайринговая операция</b> (карта) или <b>СБП</b> (ссылка / QR клиенту). После оплаты нажми «Пробить чек».</p>
+          </div></li>
+          <li class="tl reveal"><span class="tl__dot">4</span><div class="tl__card">
+            <h4>Оформи реализацию</h4>
+            <p>Создай «Реализацию товаров и услуг» на основании заказа, поставь галочку «заказ с сайта». Для маркированного товара отсканируй марку — значок должен стать зелёным, затем проведи документ и пробей чек.</p>
+          </div></li>
+          <li class="tl tl--final reveal"><span class="tl__dot">★</span><div class="tl__card">
+            <h4>Возврат по заказу</h4>
+            <p>На основании реализации создай «Возврат товаров от клиента», проверь позиции и марки, пробей чек. Деньги: РКО / эквайринг, а по СБП — через эквайринговую операцию с видом «возврат». Сумма возврата не может превышать оплаченную.</p>
+          </div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ EMERGENCY ============ -->
+    <section class="section section--emergency" id="emergency">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow eyebrow--alert">Раздел 08 · SOS</span>
+          <h2 class="section__title">Экстренные ситуации</h2>
+          <p class="section__desc">Нет света, интернета или сбой 1С — не паникуем и действуем по инструкции.</p>
+        </div>
+
+        <div class="sos-banner reveal">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v5M12 18h.01"/></svg>
+          <div>
+            <span class="sos-banner__label">Главное правило</span>
+            <b>Не потерять клиента и не потерять оплату.</b> Сообщи о ситуации в группу магазина, отметь отдел продаж (ОП) и веди таблицу «На случай сбоев в 1С».
+          </div>
+        </div>
+
+        <h3 class="sub-title">Приём оплаты по статическому QR-коду</h3>
+        <p class="note reveal" style="margin-bottom:24px">Бумажный QR на ресепшене — резервный способ <b>только</b> при неисправности ККТ/терминала, отключении электричества и форс-мажоре. В обычной работе им не пользуемся.</p>
+        <ol class="timeline">
+          <li class="tl reveal"><span class="tl__dot">1</span><div class="tl__card">
+            <h4>Зафиксируй продажу</h4>
+            <p>Внеси продажу в таблицу «на случаи проблем 1С», сделай фото товара и отдельное чёткое фото маркировки. Принимаем оплату <b>только по QR или наличными</b>.</p>
+          </div></li>
+          <li class="tl reveal"><span class="tl__dot">2</span><div class="tl__card">
+            <h4>Клиент оплачивает</h4>
+            <p>Назови точную сумму. Покупатель сканирует QR в приложении своего банка, вводит сумму вручную, подтверждает и показывает квитанцию о списании.</p>
+          </div></li>
+          <li class="tl reveal"><span class="tl__dot">3</span><div class="tl__card">
+            <h4>Проверь подтверждение</h4>
+            <p>Убедись по телефону покупателя, что оплата прошла — проверь сумму, дату и время операции.</p>
+          </div></li>
+          <li class="tl tl--final reveal"><span class="tl__dot">4</span><div class="tl__card">
+            <h4>После восстановления — пробей чеки</h4>
+            <p>Уведоми ОП, создай в 1С документы продажи на проданный товар со сканированием маркировки, укажи способ «Оплата по СБП» и выбей чеки. По завершении сообщи ОП.</p>
+          </div></li>
+        </ol>
+
+        <div class="duo">
+          <div class="forbidden forbidden--block reveal">
+            <div class="forbidden__head">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="m5.6 5.6 12.8 12.8"/></svg>
+              <h3>Категорически запрещено</h3>
+            </div>
+            <ul class="crosses">
+              <li>Переводы на личную карту сотрудника</li>
+              <li>Любые способы оплаты, кроме QR и наличных, при сбое</li>
+              <li>Отдавать товар без подтверждения оплаты</li>
+              <li>Не уведомить отдел продаж о ситуации</li>
+            </ul>
+          </div>
+
+          <div class="panel reveal">
+            <h3 class="panel__title">Другие сбои на точке</h3>
+            <ul class="ticks">
+              <li><b>Нет интернета:</b> принимаем по СБП (QR) или наличными, ведём таблицу сбоев, после — проводим все продажи в 1С теми же чеками.</li>
+              <li><b>1С: «недостаточно свободного остатка»</b> — пишем в «Штат 5LB», отмечаем Кирилла Владимировича; не ответили за 2–3 минуты — фиксируем чек в таблицу и принимаем оплату.</li>
+              <li><b>Ошибка 1С или бонусного приложения:</b> фото ошибки в «5LB техподдержка».</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="contacts-box reveal">
+          <h3 class="panel__title">Кому писать при проблеме</h3>
+          <ul class="contacts-list">
+            <li>
+              <span class="contacts-list__label">Техподдержка 1С</span>
+              <span class="contacts-list__val">
+                <a class="tg" href="https://t.me/rodion11_11" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.3 18.7 19c-.2 1-.9 1.3-1.7.8l-4.7-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.8 8.8-7.9c.4-.3-.1-.5-.6-.2L6.7 13 2 11.5c-1-.3-1-.9.2-1.4L20.7 3c.8-.3 1.5.2 1.2 1.3Z"/></svg>
+                  @rodion11_11
+                </a>
+                <a class="tg" href="https://t.me/Opushu" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.3 18.7 19c-.2 1-.9 1.3-1.7.8l-4.7-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.8 8.8-7.9c.4-.3-.1-.5-.6-.2L6.7 13 2 11.5c-1-.3-1-.9.2-1.4L20.7 3c.8-.3 1.5.2 1.2 1.3Z"/></svg>
+                  @Opushu
+                </a>
+              </span>
+            </li>
+            <li>
+              <span class="contacts-list__label">Бонусная система</span>
+              <span class="contacts-list__val">
+                <a class="tg" href="https://t.me/sysrootix" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.3 18.7 19c-.2 1-.9 1.3-1.7.8l-4.7-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.8 8.8-7.9c.4-.3-.1-.5-.6-.2L6.7 13 2 11.5c-1-.3-1-.9.2-1.4L20.7 3c.8-.3 1.5.2 1.2 1.3Z"/></svg>
+                  @sysrootix
+                </a>
+              </span>
+            </li>
+            <li>
+              <span class="contacts-list__label">Остатки и перемещения</span>
+              <span class="contacts-list__val"><i>Кирилл Владимирович</i></span>
+            </li>
+            <li>
+              <span class="contacts-list__label">Поломки на точке</span>
+              <span class="contacts-list__val"><i>Анжелика Евгеньевна</i></span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="callout reveal">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 7.5 8 9 4.5-1.5 8-4 8-9V6l-8-3Z"/></svg>
+          <p><b>Товар без «Честного знака».</b> Аргументируй спокойно: есть Свидетельство о госрегистрации (СГР), сертификаты GMP/ISO, товар ввезён до введения маркировки и срок годности актуален. Затем добавь: «но просканировать код прямо сейчас не получится — могу запросить у руководителей все сертификаты, подтверждающие оригинал».</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STANDARDS ============ -->
+    <section class="section" id="standards">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Раздел 09</span>
+          <h2 class="section__title">Стандарты магазина</h2>
+          <p class="section__desc">Чистота, выкладка, внешний вид и порядок на точке — это часть продаж.</p>
+        </div>
+
+        <div class="accordion" id="stdAccordion">
+          <div class="acc">
+            <button class="acc__head" aria-expanded="false"><span class="acc__no">1</span><span class="acc__title">Уборка точки</span><span class="acc__chevron" aria-hidden="true"></span></button>
+            <div class="acc__panel"><ul class="ticks" style="padding:4px 24px 26px">
+              <li>Ежедневно: днём до 12:00 и вечером за час до закрытия.</li>
+              <li>Рабочее место чистое: только оборудование, буклеты, касса и документы.</li>
+              <li>Каждое 15-е число — генеральная уборка с фото- и видеоотчётом.</li>
+              <li>Депремирование: 500 ₽ → 1 000 ₽ → оклад за повторные нарушения.</li>
+            </ul></div>
+          </div>
+
+          <div class="acc">
+            <button class="acc__head" aria-expanded="false"><span class="acc__no">2</span><span class="acc__title">Выкладка и ценники</span><span class="acc__chevron" aria-hidden="true"></span></button>
+            <div class="acc__panel"><ul class="ticks" style="padding:4px 24px 26px">
+              <li>Витрины всегда полные, цены корректные, товар повёрнут к клиенту.</li>
+              <li>Фото всех витрин в группу — до 12:00, корректировка выкладки — до 15:00.</li>
+              <li>Проверяй выкладку в первые 2 часа смены и за 2 часа до конца.</li>
+              <li>Цены сверяй с 1С, старые ценники меняй за 1 рабочий день и утилизируй.</li>
+              <li>Неактуальные ценники — штраф 500 ₽.</li>
+            </ul></div>
+          </div>
+
+          <div class="acc">
+            <button class="acc__head" aria-expanded="false"><span class="acc__no">3</span><span class="acc__title">Дресс-код</span><span class="acc__chevron" aria-hidden="true"></span></button>
+            <div class="acc__panel"><ul class="ticks" style="padding:4px 24px 26px">
+              <li>Верх — чёрный или брендированная футболка (обязательна, если выдана).</li>
+              <li>Низ — чёрный / белый / чёрно-белый, спортивная одежда и чистая спортивная обувь.</li>
+              <li>Тапочки и кроксы под запретом.</li>
+              <li>Бейдж, аккуратная причёска, без посторонних запахов. Нарушение — 1 000 ₽.</li>
+            </ul></div>
+          </div>
+
+          <div class="acc">
+            <button class="acc__head" aria-expanded="false"><span class="acc__no">4</span><span class="acc__title">Музыка</span><span class="acc__chevron" aria-hidden="true"></span></button>
+            <div class="acc__panel"><ul class="ticks" style="padding:4px 24px 26px">
+              <li>В рабочее время всегда играет фоновая музыка (рекомендуется радио Record).</li>
+              <li>Запрещены рок, хардрок, Инстасамка и треки с матом.</li>
+              <li>Громкость умеренная — чтобы свободно разговаривать с покупателем.</li>
+              <li>Нет музыки или не тот плейлист — депремирование 500 ₽.</li>
+            </ul></div>
+          </div>
+
+          <div class="acc">
+            <button class="acc__head" aria-expanded="false"><span class="acc__no">5</span><span class="acc__title">Ключи и рабочий компьютер</span><span class="acc__chevron" aria-hidden="true"></span></button>
+            <div class="acc__panel"><ul class="ticks" style="padding:4px 24px 26px">
+              <li>Ключи хранятся у штатных сотрудников, в офисе и у старшего продавца.</li>
+              <li>Прятать ключи в «нычках» запрещено; при подмене передай ключи лично или через круглосуточную точку «Медузы».</li>
+              <li>Потеря ключа — штраф в размере замены замка и дубликатов.</li>
+              <li>Игры на рабочем компьютере запрещены: 500 ₽, повтор — 2 500 ₽.</li>
+            </ul></div>
+          </div>
+
+          <div class="acc">
+            <button class="acc__head" aria-expanded="false"><span class="acc__no">6</span><span class="acc__title">Электроэнергия, нужды и перемещения</span><span class="acc__chevron" aria-hidden="true"></span></button>
+            <div class="acc__panel"><ul class="ticks" style="padding:4px 24px 26px">
+              <li>Экономим электричество: кондиционер — только в жару, свет в подсобке выключаем, подсветка витрин — по запросу клиента.</li>
+              <li>Всегда включены: свет в зале и холодильники с напитками.</li>
+              <li>Хоз. нужды подаём списком 13–14 и 27–28 числа.</li>
+              <li>Перемещение товара по запросу запрашиваем не позднее чем за сутки у Кирилла Владимировича.</li>
+            </ul></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SPECIAL ============ -->
+    <section class="section section--tint" id="special">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Раздел 10</span>
+          <h2 class="section__title">Особые правила</h2>
+          <p class="section__desc">Здесь ответственность лежит лично на тебе — читай внимательно.</p>
+        </div>
+
+        <h3 class="sub-title">Продажа товаров 18+</h3>
+        <p class="note reveal" style="margin-bottom:24px">Энергетики и предтренники продаём только совершеннолетним. Всегда требуй документ и принимай только оригинал.</p>
+        <div class="vs">
+          <div class="vs__col vs__col--yes reveal">
+            <div class="vs__title">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              Принимаем
+            </div>
+            <ul class="ticks ticks--good">
+              <li>Паспорт гражданина РФ</li>
+              <li>Заграничный паспорт</li>
+              <li>Временное удостоверение личности (фото, дата, печать МВД)</li>
+              <li>Водительское удостоверение</li>
+              <li>Военный билет · паспорт иностранного гражданина</li>
+            </ul>
+          </div>
+          <div class="vs__col vs__col--no reveal">
+            <div class="vs__title">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+              Не принимаем
+            </div>
+            <ul class="crosses">
+              <li>Студенческий / ученический билет</li>
+              <li>Социальные карты, пропуска, клубные и банковские карты</li>
+              <li>Фото паспорта или прав на телефоне</li>
+              <li>Электронные документы в приложениях (Госуслуги)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="callout callout--danger reveal">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg>
+          <p>Документ не подходит или клиент показывает только телефон — <b>отказываем в продаже</b>. Спокойно объясняем: это требование закона. При продаже несовершеннолетнему штраф ложится <b>лично на продавца</b>.</p>
+        </div>
+
+        <div class="duo">
+          <div class="panel reveal">
+            <h3 class="panel__title">Кража на точке</h3>
+            <ul class="ticks">
+              <li>Заметил кражу в свою смену — товар ставится в ЗП со скидкой 15%.</li>
+              <li>Не заметил, выявлено на ревизии — сумма делится на всех сотрудников точки уже без скидки.</li>
+            </ul>
+          </div>
+          <div class="panel reveal">
+            <h3 class="panel__title">Коммерческая тайна</h3>
+            <ul class="ticks">
+              <li>Информацию о бонусах сообщаем только по номеру, с которого пишет клиент — по чужим номерам нельзя.</li>
+              <li>Данные клиентов и базу не передаём третьим лицам и не используем в личных целях.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OUTRO ============ -->
+    <section class="outro">
+      <div class="container outro__inner">
+        <h2 class="outro__title reveal">Готов выйти в смену?</h2>
+        <p class="outro__text reveal">
+          Ты прошёл всю базу знаний продавца 5LB. Возвращайся к ней, когда нужно свериться
+          с регламентом, а всё остальное уточняй у руководителя в рабочем чате. Удачных продаж!
+        </p>
+        <a href="#top" class="btn btn--primary reveal">
+          Наверх к началу
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="contacts">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="brand__mark">5LB</span>
+        <p>База знаний продавца-консультанта. Обязательна к ознакомлению. Этот документ — твой помощник на всех этапах работы.</p>
+      </div>
+      <nav class="footer__nav" aria-label="Разделы">
+        <a href="#workday">Рабочий день</a>
+        <a href="#salary">Зарплата и грейды</a>
+        <a href="#sales">Техника продаж</a>
+        <a href="#payments">Касса и оплаты</a>
+        <a href="#emergency">SOS · Экстренные ситуации</a>
+      </nav>
+      <p class="footer__copy">© 5LB · Внутренний документ. Горячая линия +7 924 151 25 55 · sp5lb27@mail.ru</p>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Наверх" hidden>
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 14 6-6 6 6"/></svg>
+  </button>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

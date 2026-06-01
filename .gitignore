@@ -1,0 +1,11 @@
+# Raw internal source documents — must NOT be published or pushed.
+# The site is served from this repo via GitHub Pages, and Pages exposes
+# every committed file at the public URL. Keep the .docx local only.
+docs/
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
