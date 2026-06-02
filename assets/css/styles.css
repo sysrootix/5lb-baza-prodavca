@@ -734,33 +734,36 @@ mark.search-hit.is-current {
 }
 .ladder__step {
   position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 16px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--r);
-  padding: 24px 22px;
+  padding: 24px 24px;
   box-shadow: var(--sh-sm);
-  border-top: 4px solid var(--orange-100);
+  border-left: 4px solid var(--orange-100);
   transition: transform .25s var(--ease), box-shadow .25s;
 }
 .ladder__step:hover { transform: translateY(-4px); box-shadow: var(--sh-md); }
-.ladder__step[data-lvl="2"] { border-top-color: #FFC061; }
-.ladder__step[data-lvl="3"] { border-top-color: var(--orange); }
-.ladder__step--max { border-top-color: var(--red); background: linear-gradient(180deg, var(--red-bg), var(--surface) 60%); }
+.ladder__step[data-lvl="3"] { border-left-color: var(--orange); }
+.ladder__step--max { border-left-color: var(--red); background: linear-gradient(110deg, var(--red-bg), var(--surface) 60%); }
 .ladder__lvl {
   display: grid; place-items: center;
-  width: 40px; height: 40px;
-  border-radius: 12px;
+  width: 46px; height: 46px;
+  border-radius: 14px;
   background: var(--orange-100);
   color: var(--orange-dark);
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   line-height: 1;
-  margin-bottom: 16px;
 }
+.ladder__step[data-lvl="3"] .ladder__lvl { background: var(--orange); color: #fff; }
 .ladder__step--max .ladder__lvl { background: var(--red); color: #fff; }
 .ladder__step b { display: block; font-family: var(--font-display); font-weight: 600; color: var(--ink); font-size: 1.08rem; letter-spacing: -.01em; }
-.ladder__step span { display: block; font-size: 13.5px; color: var(--muted); margin-top: 6px; }
+.ladder__step span { display: block; font-size: 13.5px; color: var(--muted); margin-top: 4px; }
 
 /* =========================================================
    SALES — stepper, panels, forbidden, quote
@@ -1432,55 +1435,60 @@ mark.search-hit.is-current {
 .fd-col .fd-node { max-width: 100%; }
 
 /* ---- Funnel (воронка продаж) ---- */
-/* Dark text on the vibrant orange keeps brand colour AND clears WCAG AA (≈6–9:1). */
-.funnel { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+/* Tapering rounded bars (no clip-path → text never clips). Dark text on orange clears WCAG AA. */
+.funnel { display: flex; flex-direction: column; align-items: center; gap: 8px; }
 .funnel__row {
   width: var(--w, 100%);
-  min-width: min(100%, 250px);
-  display: flex; align-items: center; gap: 16px;
-  padding: 16px 28px;
+  display: flex; align-items: center; gap: 15px;
+  padding: 15px 24px;
+  border-radius: 14px;
   color: #2B1304;
   background: linear-gradient(100deg, var(--orange-dark), var(--orange));
-  clip-path: polygon(4% 0, 96% 0, 90% 100%, 10% 100%);
-  box-shadow: var(--sh-sm);
-  transition: transform .25s var(--ease), filter .25s;
+  box-shadow: 0 4px 14px -6px rgba(226,84,0,.5);
+  transition: transform .25s var(--ease), box-shadow .25s;
 }
-.funnel__row:hover { transform: scale(1.015); filter: saturate(1.08) brightness(1.03); }
-.funnel__row:nth-child(2) { --w: 92%; }
-.funnel__row:nth-child(3) { --w: 81%; background: linear-gradient(100deg, var(--orange), var(--orange-light)); }
+.funnel__row:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -8px rgba(226,84,0,.55); }
+.funnel__row:nth-child(1) { --w: 100%; }
+.funnel__row:nth-child(2) { --w: 90%; }
+.funnel__row:nth-child(3) { --w: 80%; background: linear-gradient(100deg, var(--orange), var(--orange-light)); }
 .funnel__row:nth-child(4) { --w: 70%; background: linear-gradient(100deg, var(--orange), var(--orange-light)); }
-.funnel__row:nth-child(5) { --w: 59%; background: linear-gradient(100deg, var(--orange-light), #FFAE5C); }
+.funnel__row:nth-child(5) { --w: 60%; background: linear-gradient(100deg, var(--orange-light), #FFB061); }
 .funnel__n {
   flex: none;
-  width: 30px; height: 30px;
+  width: 32px; height: 32px;
   display: grid; place-items: center;
-  border-radius: 9px;
-  background: rgba(255,255,255,.92);
+  border-radius: 50%;
+  background: #fff;
   color: var(--orange-dark);
   font-family: var(--font-display); font-weight: 800; font-size: .95rem;
+  box-shadow: 0 2px 6px rgba(120,40,0,.2);
 }
-.funnel__t { font-family: var(--font-display); font-weight: 700; font-size: 1.02rem; letter-spacing: -.01em; }
-.funnel__t span { display: block; font-family: var(--font-body); font-weight: 600; font-size: 12.5px; color: #4A2208; letter-spacing: 0; margin-top: 1px; }
+.funnel__t { min-width: 0; font-family: var(--font-display); font-weight: 700; font-size: 1.02rem; letter-spacing: -.01em; line-height: 1.2; }
+.funnel__t span { display: block; font-family: var(--font-body); font-weight: 600; font-size: 12.5px; color: #5A2A0A; letter-spacing: 0; margin-top: 2px; }
 
 /* ---- Time ruler (распорядок дня) ---- */
-.ruler { position: relative; display: flex; justify-content: space-between; gap: 12px; padding-top: 34px; margin-top: 8px; }
+.ruler { position: relative; display: flex; justify-content: space-between; gap: 14px; padding-top: 12px; margin-top: 4px; }
 .ruler::before {
-  content: ""; position: absolute; left: 8px; right: 8px; top: 41px;
-  height: 3px; border-radius: 3px;
+  content: ""; position: absolute; left: 5%; right: 5%; top: 62px;
+  height: 4px; border-radius: 4px;
   background: linear-gradient(90deg, var(--orange), var(--orange-light));
 }
 .ruler__stop { position: relative; flex: 1 1 0; text-align: center; display: flex; flex-direction: column; align-items: center; }
 .ruler__time {
-  font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; letter-spacing: -.02em;
-  color: var(--orange-text); margin-bottom: 16px;
+  font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; letter-spacing: -.02em;
+  color: var(--orange-text); margin-bottom: 20px;
 }
 .ruler__dot {
-  width: 16px; height: 16px; border-radius: 50%;
-  background: var(--surface); border: 3px solid var(--orange);
-  position: relative; z-index: 1; margin-bottom: 12px;
+  width: 26px; height: 26px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--surface); border: 4px solid var(--orange);
+  position: relative; z-index: 1; margin-bottom: 16px;
+  box-shadow: 0 0 0 5px var(--orange-50);
 }
-.ruler__stop--end .ruler__dot { background: var(--orange); }
-.ruler__label { font-size: 13px; color: var(--ink-soft); line-height: 1.4; max-width: 150px; }
+.ruler__dot::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--orange); }
+.ruler__stop--end .ruler__dot { background: var(--orange); border-color: var(--orange); }
+.ruler__stop--end .ruler__dot::after { background: #fff; }
+.ruler__label { font-size: 13.5px; color: var(--ink-soft); line-height: 1.45; max-width: 160px; }
 
 /* =========================================================
    THEME TOGGLE
@@ -1632,8 +1640,10 @@ body.nav-open { overflow: hidden; }
 
   /* Diagrams on phones */
   .scheme { padding: 22px 16px; }
-  .funnel__row { clip-path: polygon(2% 0, 98% 0, 94% 100%, 6% 100%); padding: 14px 20px; }
-  .funnel__t { font-size: .95rem; }
+  .funnel__row { padding: 13px 18px; gap: 12px; }
+  .funnel__row:nth-child(n) { --w: 100%; }  /* full width on phones — taper is unreadable when narrow */
+  .funnel__t { font-size: .96rem; }
+  .funnel__n { width: 28px; height: 28px; }
   .ruler { flex-direction: column; gap: 0; padding-top: 0; }
   .ruler::before {
     left: 7px; right: auto; top: 8px; bottom: 8px;
