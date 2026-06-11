@@ -1684,6 +1684,20 @@ body.nav-open { overflow: hidden; }
 }
 
 /* =========================================================
+   INLINE CONTENT LINK
+   ========================================================= */
+.link-inline {
+  color: var(--orange-text);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.5px;
+}
+.link-inline:hover { color: var(--orange); }
+[data-theme="dark"] .link-inline { color: var(--orange-light); }
+[data-theme="dark"] .link-inline:hover { color: #FFB061; }
+
+/* =========================================================
    MOTION SAFETY
    ========================================================= */
 @media (prefers-reduced-motion: reduce) {

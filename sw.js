@@ -1,6 +1,6 @@
 /* 5LB База знаний — service worker (offline-first для статики) */
-const CACHE = "5lb-baza-v2";
-const SHELL = ["./", "./index.html"]; // critical, cached atomically
+const CACHE = "5lb-baza-v3";
+const SHELL = ["./", "./index.html", "./bonus.html"]; // critical, cached atomically
 const EXTRA = [
   "./assets/css/styles.css",
   "./assets/js/main.js",

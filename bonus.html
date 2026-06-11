@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#FF6600" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="googlebot" content="noindex, nofollow" />
+  <title>5LB · Бонусная программа — гид продавца</title>
+  <meta name="description" content="Гид продавца 5LB по бонусной программе: регистрация клиента, приветственное колесо, кэшбэк-рулетка, рефералка, списание на кассе, типы карт и ответы на частые вопросы клиентов." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="5LB · Бонусная программа — гид продавца" />
+  <meta property="og:description" content="Как работает бонуска 5LB: начисление, списание, колесо фортуны и что отвечать клиентам." />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23FF6600'/%3E%3Ctext x='50' y='68' font-family='Arial,sans-serif' font-size='40' font-weight='800' fill='white' text-anchor='middle'%3E5LB%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23FF6600'/%3E%3Ctext x='50' y='68' font-family='Arial,sans-serif' font-size='40' font-weight='800' fill='white' text-anchor='middle'%3E5LB%3C/text%3E%3C/svg%3E" />
+
+  <!-- Apply saved theme before paint (no flash) -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("5lb-theme");
+        if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        if (t === "dark") document.documentElement.setAttribute("data-theme", "dark");
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+  <div class="progress" aria-hidden="true"><span class="progress__bar" id="progressBar"></span></div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="index.html" class="brand" aria-label="5LB — к базе знаний">
+        <span class="brand__mark">5LB</span>
+        <span class="brand__sub">бонусная&nbsp;программа</span>
+      </a>
+
+      <nav class="nav" id="primaryNav" aria-label="Основная навигация">
+        <a href="#basics" class="nav__link">Суть</a>
+        <a href="#signup" class="nav__link">Регистрация</a>
+        <a href="#earn" class="nav__link">Начисление</a>
+        <a href="#redeem" class="nav__link">Списание</a>
+        <a href="#cards" class="nav__link">Карты</a>
+        <a href="#faq" class="nav__link">FAQ</a>
+        <a href="index.html" class="nav__link nav__link--alert">← База знаний</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="icon-btn" id="searchToggle" aria-label="Поиск по гиду" aria-expanded="false">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+        <button class="icon-btn theme-btn" id="themeToggle" aria-label="Переключить тему" title="Светлая / тёмная тема">
+          <svg class="sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M2 12h2.5M19.5 12H22M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+          <svg class="moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+        </button>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="primaryNav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="search" id="searchPanel" hidden>
+      <div class="container search__inner">
+        <svg class="search__icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="search" id="searchInput" class="search__input" placeholder="Поиск: колесо, welcome, рефералка, возврат, QR…" autocomplete="off" />
+        <span class="search__count" id="searchCount" aria-live="polite" role="status"></span>
+        <div class="search__nav">
+          <button class="search__step" id="searchPrev" aria-label="Предыдущее совпадение" title="Назад (Shift+Enter)">↑</button>
+          <button class="search__step" id="searchNext" aria-label="Следующее совпадение" title="Вперёд (Enter)">↓</button>
+        </div>
+        <button class="search__close" id="searchClose" aria-label="Закрыть поиск">✕</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <div class="hero__bg" aria-hidden="true">
+        <span class="hero__glow"></span>
+        <span class="hero__grid"></span>
+      </div>
+      <div class="container hero__inner">
+        <span class="badge reveal">
+          <span class="badge__dot"></span> Гид продавца · бонусная программа 5LB
+        </span>
+        <h1 class="hero__title reveal">
+          Бонуска <span class="grad">5LB</span><br>без вопросов
+        </h1>
+        <p class="hero__lead reveal">
+          Клиенты спрашивают про бонусы каждый день — здесь всё, что нужно знать продавцу:
+          как зарегистрировать клиента, откуда берутся бонусы, как списывать их на кассе
+          и что отвечать в спорных ситуациях. Прочитай один раз — и отвечай уверенно.
+        </p>
+        <div class="hero__cta reveal">
+          <a href="#basics" class="btn btn--primary">
+            Разобраться
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#faq" class="btn btn--ghost">Что отвечать клиенту</a>
+        </div>
+
+        <ul class="hero__stats reveal">
+          <li class="stat">
+            <span class="stat__num">1 бонус = 1 ₽</span>
+            <span class="stat__label">курс при списании</span>
+          </li>
+          <li class="stat">
+            <span class="stat__num">до 30%</span>
+            <span class="stat__label">чека можно оплатить бонусами</span>
+          </li>
+          <li class="stat">
+            <span class="stat__num">24 часа</span>
+            <span class="stat__label">на прокрутку колеса фортуны</span>
+          </li>
+          <li class="stat">
+            <span class="stat__num">30 дней</span>
+            <span class="stat__label">живёт приветственный бонус</span>
+          </li>
+        </ul>
+      </div>
+      <a href="#basics" class="hero__scroll" aria-label="Листай вниз"><span></span></a>
+    </section>
+
+    <!-- ============ BASICS ============ -->
+    <section class="section" id="basics">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Раздел 01</span>
+          <h2 class="section__title">Как устроена бонуска</h2>
+          <p class="section__desc">Программа лояльности 5LB и Meduza: клиент копит бонусы с покупок и оплачивает ими часть чека.</p>
+        </div>
+
+        <div class="rule-highlights">
+          <div class="rh reveal">
+            <span class="rh__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM18 18h3v3h-3z"/></svg></span>
+            <div><b>Карта с QR-кодом</b><span>в приложении 5LB, боте @pro_5lb_bot и Apple Wallet</span></div>
+          </div>
+          <div class="rh reveal">
+            <span class="rh__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4"/></svg></span>
+            <div><b>Копит с покупок</b><span>колесо фортуны после каждого чека или авто-кэшбэк 10%</span></div>
+          </div>
+          <div class="rh reveal">
+            <span class="rh__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M14.5 9a2.5 2.5 0 0 0-2.5-1.8c-1.4 0-2.5.9-2.5 2s1 1.7 2.5 2 2.5.9 2.5 2-1.1 2-2.5 2A2.5 2.5 0 0 1 9.5 15"/><path d="M12 5.5v2M12 16.5v2"/></svg></span>
+            <div><b>Списывает на кассе</b><span>1 бонус = 1 ₽, до 30% от суммы чека</span></div>
+          </div>
+        </div>
+
+        <div class="scheme reveal" role="img" aria-label="Путь клиента в бонусной программе: регистрация в приложении или на кассе; один спин приветственного колеса — бонусы сразу на баланс; покупка в магазине; 24 часа на прокрутку колеса за покупку, иначе автоматически начислится 10% от чека; выигрыш приходит на баланс через 24 часа; списание бонусов на кассе — до 30% чека.">
+          <div class="scheme__cap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            Путь клиента
+            <span>от регистрации до списания</span>
+          </div>
+          <div class="ruler" aria-hidden="true">
+            <div class="ruler__stop"><span class="ruler__time">Старт</span><span class="ruler__dot"></span><span class="ruler__label">Регистрация в приложении / боте / на кассе</span></div>
+            <div class="ruler__stop"><span class="ruler__time">Спин</span><span class="ruler__dot"></span><span class="ruler__label">Приветственное колесо — бонусы сразу на баланс</span></div>
+            <div class="ruler__stop"><span class="ruler__time">Чек</span><span class="ruler__dot"></span><span class="ruler__label">Покупка в магазине — открывается колесо за покупку</span></div>
+            <div class="ruler__stop"><span class="ruler__time">+24 ч</span><span class="ruler__dot"></span><span class="ruler__label">Выигрыш колеса (или авто-10%) приходит на баланс</span></div>
+            <div class="ruler__stop ruler__stop--end"><span class="ruler__time">Касса</span><span class="ruler__dot"></span><span class="ruler__label">Списание: 1 бонус = 1 ₽, до 30% чека</span></div>
+          </div>
+        </div>
+
+        <div class="callout callout--info reveal">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.6-7-10a7 7 0 0 1 14 0c0 5.4-7 10-7 10Z"/><circle cx="12" cy="11" r="2.5"/></svg>
+          <p><b>В каждом городе — своя карта и свой баланс.</b> У клиента из Владивостока в Хабаровске будет отдельная карта: бонусы между городами не переносятся, и карта другого города на кассе не сработает.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SIGNUP ============ -->
+    <section class="section section--tint" id="signup">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Раздел 02</span>
+          <h2 class="section__title">Как зарегистрировать клиента</h2>
+          <p class="section__desc">Бонусную карту предлагаем каждому покупателю — это обязательный этап продажи в 1С.</p>
+        </div>
+
+        <div class="duo">
+          <div class="panel reveal">
+            <h3 class="panel__title">Клиент регистрируется сам</h3>
+            <ul class="ticks ticks--good">
+              <li>Покажи QR-код на тейбл-тенте — он ведёт в бот <b>@pro_5lb_bot</b> или мобильное приложение 5LB.</li>
+              <li>Клиент указывает телефон и подтверждает его кодом из SMS — без телефона карта не работает.</li>
+              <li>Сразу после регистрации ему доступен <b>один спин приветственного колеса</b>.</li>
+              <li>Карта с QR появляется в приложении, боте и добавляется в Apple Wallet.</li>
+            </ul>
+          </div>
+          <div class="panel reveal">
+            <h3 class="panel__title">Регистрация на кассе (1С)</h3>
+            <ol class="flow">
+              <li>Предложи карту и спроси номер телефона.</li>
+              <li>Касса отправит клиенту SMS с 4-значным кодом (код живёт 5 минут, 3 попытки, повторная отправка — через минуту).</li>
+              <li>Клиент диктует код, ты заполняешь анкету: имя, дата рождения (от 14 лет), пол, e-mail по желанию.</li>
+              <li>Готово — клиенту сразу начисляется <b>1 000 приветственных бонусов</b>.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="callout reveal">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+          <p>Если номер уже зарегистрирован — касса покажет карточку клиента с маскированным телефоном и балансом. Клиент, получивший 1 000 бонусов на кассе, <b>приветственное колесо в приложении уже не крутит</b> — это одно и то же welcome-начисление.</p>
+        </div>
+
+        <div class="callout callout--danger reveal">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 7.5 8 9 4.5-1.5 8-4 8-9V6l-8-3Z"/><path d="M12 9v4M12 16h.01"/></svg>
+          <p><b>Никаких регистраций «на себя» и накруток.</b> Система фиксирует IP и устройство: не больше 3 регистраций с одного IP в месяц, самоприглашение и дубли устройств блокируются антифродом, инциденты разбирает руководство.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EARN ============ -->
+    <section class="section" id="earn">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Раздел 03</span>
+          <h2 class="section__title">Откуда у клиента бонусы</h2>
+          <p class="section__desc">Пять источников начисления. Знай их все — клиенты спрашивают постоянно.</p>
+        </div>
+
+        <div class="cards">
+          <div class="card reveal" data-step="01">
+            <span class="card__no">01</span>
+            <span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4"/></svg></span>
+            <h3 class="card__title">Приветственное колесо</h3>
+            <p class="card__text">Один спин после регистрации, в каждом городе отдельно. Хабаровск: 1 000–10 000 бонусов, Владивосток: 300–5 000. Зачисляется сразу, живёт 30 дней.</p>
+          </div>
+
+          <div class="card reveal" data-step="02">
+            <span class="card__no">02</span>
+            <span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            <h3 class="card__title">Колесо за покупку</h3>
+            <p class="card__text">Доступно 24 часа после чека. Хабаровск: 10–110% от чека, Владивосток: 5–30% (2–15%, если в чеке было списание). Выигрыш приходит через 24 часа.</p>
+          </div>
+
+          <div class="card reveal" data-step="03">
+            <span class="card__no">03</span>
+            <span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></span>
+            <h3 class="card__title">Авто-кэшбэк 10%</h3>
+            <p class="card__text">Не прокрутил колесо за 24 часа — система сама начислит 10% от суммы чека. Тоже с задержкой 24 часа. Клиент в любом случае не остаётся без бонусов.</p>
+          </div>
+
+          <div class="card reveal" data-step="04">
+            <span class="card__no">04</span>
+            <span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg></span>
+            <h3 class="card__title">Рефералка</h3>
+            <p class="card__text">Личный код/ссылка в приложении: +50 бонусов за регистрацию друга, +200 за его первую покупку, +250 за каждые 10 приглашённых друзей.</p>
+          </div>
+
+          <div class="card reveal" data-step="05">
+            <span class="card__no">05</span>
+            <span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.7 5.6 6.3.9-4.5 4.4 1 6.1L12 17l-5.5 3 1-6.1L3 9.5l6.3-.9L12 3Z"/></svg></span>
+            <h3 class="card__title">Отзыв о покупке</h3>
+            <p class="card__text">После оффлайн-чека клиенту приходит пуш «оцени обслуживание». Четыре оценки по 10-балльной шкале — и 100 бонусов сразу на карту. Один отзыв на чек, в течение 30 дней.</p>
+          </div>
+
+          <div class="card card--cta reveal">
+            <span class="card__icon card__icon--ghost"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4M8 8a4 4 0 1 1 8 0c0 2-1.5 3-3 4l-1 .7L11 12c-1.5-1-3-2-3-4Z" opacity="0"/><circle cx="12" cy="12" r="9"/><path d="M9 12.5l2 2 4-4.5"/></svg></span>
+            <h3 class="card__title">Твой интерес</h3>
+            <p class="card__text">Оценки из отзывов считаются по каждому продавцу, а низкие (среднее ниже 5) сразу уходят руководству. Хорошее обслуживание — твоя статистика.</p>
+          </div>
+        </div>
+
+        <div class="duo">
+          <div class="panel reveal">
+            <h3 class="panel__title">Почему бонусы приходят не сразу</h3>
+            <p style="margin-bottom:14px">Выигрыш колеса и авто-кэшбэк зачисляются <b>через 24 часа</b> после прокрутки — это защита от возвратов. Когда бонусы активируются, клиенту придёт пуш.</p>
+            <ul class="ticks">
+              <li>Приветственный бонус — исключение: он падает на баланс <b>сразу</b> после спина.</li>
+              <li>Бонусы за отзыв и рефералку тоже начисляются сразу.</li>
+            </ul>
+          </div>
+          <div class="panel reveal">
+            <h3 class="panel__title">Сгорание приветственного бонуса</h3>
+            <ul class="ticks ticks--danger">
+              <li>Welcome-бонус живёт <b>30 дней</b> с момента спина.</li>
+              <li>За 3 дня до сгорания клиенту приходит пуш-напоминание.</li>
+              <li>Сгорает только <b>неиспользованный остаток</b> — при списаниях welcome тратится в первую очередь.</li>
+              <li>Остальные бонусы (кэшбэк, рефералка, отзывы) не сгорают.</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="note reveal">Покупки, оплаченные с карты блогера или карты сотрудника, колесо фортуны не открывают. Приветственное колесо доступно аккаунтам, созданным после 15.04.2026.</p>
+      </div>
+    </section>
+
+    <!-- ============ REDEEM ============ -->
+    <section class="section section--tint" id="redeem">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Раздел 04</span>
+          <h2 class="section__title">Списание на кассе</h2>
+          <p class="section__desc">Курс простой: 1 бонус = 1 ₽. Главное — правильно идентифицировать клиента.</p>
+        </div>
+
+        <ol class="timeline">
+          <li class="tl reveal"><span class="tl__dot">1</span><div class="tl__card">
+            <h4>Клиент показывает QR-код карты</h4>
+            <p>QR есть в приложении 5LB, боте <b>@pro_5lb_bot</b> и Apple Wallet. Это и есть «номер карты» — пластика не существует.</p>
+          </div></li>
+          <li class="tl reveal"><span class="tl__dot">2</span><div class="tl__card">
+            <h4>Сканируешь QR в 1С</h4>
+            <p>Касса покажет имя клиента, баланс карты и лимит списания. Если QR не читается — найди клиента по номеру телефона (только по номеру самого клиента!).</p>
+          </div></li>
+          <li class="tl reveal"><span class="tl__dot">3</span><div class="tl__card">
+            <h4>Клиент называет сумму списания</h4>
+            <p>Максимум — <b>30% от суммы чека</b> (у служебных карт лимит другой — касса покажет сама). 1 бонус = 1 ₽.</p>
+          </div></li>
+          <li class="tl tl--final reveal"><span class="tl__dot">★</span><div class="tl__card">
+            <h4>Пробиваешь чек</h4>
+            <p>Бонусы списываются автоматически, остальное клиент доплачивает любым способом. Начисление за этот чек придёт ему через колесо фортуны или авто-кэшбэк.</p>
+          </div></li>
+        </ol>
+
+        <div class="vs">
+          <div class="vs__col vs__col--yes reveal">
+            <div class="vs__title">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              Можно
+            </div>
+            <ul class="ticks ticks--good">
+              <li>Списывать до 30% от чека (1 бонус = 1 ₽)</li>
+              <li>Искать клиента по его собственному номеру телефона</li>
+              <li>Сообщать клиенту его баланс — касса видит его при сканировании</li>
+            </ul>
+          </div>
+          <div class="vs__col vs__col--no reveal">
+            <div class="vs__title">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+              Нельзя
+            </div>
+            <ul class="crosses">
+              <li>Списывать бонусы на сигареты, сигариллы и бустеры</li>
+              <li>Сообщать баланс и данные по чужому номеру — только владельцу</li>
+              <li>Принимать карту другого города — касса откажет, объясни клиенту</li>
+              <li>Начислять или списывать бонусы «вручную» в обход кассы</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout callout--info reveal">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+          <p><b>При списании первым тратится приветственный бонус</b> — так у клиента меньше сгорит через 30 дней. Подскажи это тем, кто «копит на потом»: welcome лучше потратить сразу.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CARDS ============ -->
+    <section class="section" id="cards">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Раздел 05</span>
+          <h2 class="section__title">Типы карт</h2>
+          <p class="section__desc">У большинства клиентов — базовая карта. Но на кассе встречаются и особые: касса сама покажет тип и лимит.</p>
+        </div>
+
+        <div class="ftable-wrap reveal">
+          <table class="ftable">
+            <thead><tr><th>Карта</th><th>У кого</th><th>Списание</th><th>Особенности</th></tr></thead>
+            <tbody>
+              <tr><td><b>Базовая</b></td><td>Все клиенты</td><td class="amount">до 30%</td><td>Все начисления: колесо, кэшбэк, рефералка, отзывы</td></tr>
+              <tr><td><b>Основателя</b></td><td>«Основатели»</td><td class="amount">без начислений</td><td>Только списание; разовое начисление 30 000 при активации</td></tr>
+              <tr><td><b>Партнёрская</b></td><td>Партнёры / блогеры</td><td class="amount">—</td><td>10% с покупок приглашённых, вывод в рубли через CRM</td></tr>
+              <tr><td><b>Блогерская</b></td><td>Блогеры (Хабаровск)</td><td class="amount">до 100%</td><td>Ежемесячное начисление, остаток не сгорает, колеса нет</td></tr>
+              <tr><td><b>Сотрудника</b></td><td>Сотрудники 5LB (Хабаровск)</td><td class="amount">до 50%</td><td>3 000 / 5 000 / 7 000 бонусов по грейду, сброс 1-го числа</td></tr>
+              <tr><td><b>Сотрудника Meduza</b></td><td>Сотрудники Meduza</td><td class="amount">до 15%</td><td>Ежемесячное начисление, сброс 1-го числа</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="duo">
+          <div class="panel reveal">
+            <h3 class="panel__title">Твоя карта сотрудника</h3>
+            <ul class="ticks ticks--good">
+              <li>Каждый месяц 1-го числа на карту падает сумма по твоему грейду: <b>1 грейд — 3 000</b>, <b>2 грейд — 5 000</b>, <b>3 грейд — 7 000</b> бонусов.</li>
+              <li>Списывать можно до <b>50% чека</b> при покупках в наших магазинах.</li>
+              <li>Покупки с карты сотрудника колесо фортуны не открывают.</li>
+            </ul>
+          </div>
+          <div class="panel reveal">
+            <h3 class="panel__title">Важно помнить</h3>
+            <ul class="ticks ticks--danger">
+              <li><b>Остаток не копится:</b> 1-го числа несписанные бонусы сгорают и начисляется новая сумма — трать до конца месяца.</li>
+              <li>Карта работает только в Хабаровске.</li>
+              <li>При увольнении карта деактивируется, остаток сгорает.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ REFUNDS ============ -->
+    <section class="section section--tint" id="refunds">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Раздел 06</span>
+          <h2 class="section__title">Возвраты и спорные ситуации</h2>
+          <p class="section__desc">Возврат чека автоматически откатывает все бонусные операции — руками ничего считать не нужно.</p>
+        </div>
+
+        <div class="duo">
+          <div class="panel reveal">
+            <h3 class="panel__title">Что происходит при возврате</h3>
+            <ul class="ticks">
+              <li>Бонусы, которые клиент <b>списал</b> в чеке, возвращаются на карту.</li>
+              <li>Бонусы, <b>начисленные</b> за этот чек (колесо, кэшбэк), снимаются обратно.</li>
+              <li>Непрокрученный выигрыш колеса по возвращённому чеку аннулируется.</li>
+              <li>Сгоревший или списанный welcome-остаток возвратом не восстанавливается.</li>
+            </ul>
+          </div>
+          <div class="panel reveal">
+            <h3 class="panel__title">«У меня минус на карте!»</h3>
+            <p style="margin-bottom:14px">Это нормально и не баг: если клиент уже потратил бонусы, начисленные за возвращённый чек, при возврате баланс уходит в минус.</p>
+            <ul class="ticks">
+              <li>Минус сам погасится следующими начислениями.</li>
+              <li>Объясни клиенту спокойно: «бонусы за возвращённую покупку списались обратно».</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="contacts-box reveal">
+          <h3 class="panel__title">Проблема с бонусами на кассе?</h3>
+          <ul class="contacts-list">
+            <li>
+              <span class="contacts-list__label">Ошибка начисления / списания / QR</span>
+              <span class="contacts-list__val">
+                Фото ошибки в чат <i>«5LB техподдержка»</i> и отметь
+                <a class="tg" href="https://t.me/sysrootix" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.3 18.7 19c-.2 1-.9 1.3-1.7.8l-4.7-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.8 8.8-7.9c.4-.3-.1-.5-.6-.2L6.7 13 2 11.5c-1-.3-1-.9.2-1.4L20.7 3c.8-.3 1.5.2 1.2 1.3Z"/></svg>
+                  @sysrootix
+                </a>
+              </span>
+            </li>
+            <li>
+              <span class="contacts-list__label">Клиент настаивает, а касса не даёт</span>
+              <span class="contacts-list__val"><i>Не обходи систему — зафиксируй ситуацию и передай в техподдержку</i></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Раздел 07</span>
+          <h2 class="section__title">Что отвечать клиенту</h2>
+          <p class="section__desc">Готовые ответы на самые частые вопросы у кассы.</p>
+        </div>
+
+        <div class="accordion" id="faqAccordion">
+          <div class="acc">
+            <button class="acc__head" aria-expanded="false"><span class="acc__no">1</span><span class="acc__title">«Мне не пришли бонусы за покупку»</span><span class="acc__chevron" aria-hidden="true"></span></button>
+            <div class="acc__panel"><div style="padding:4px 24px 26px">
+              <p>Бонусы за покупку приходят <b>через 24 часа</b> после прокрутки колеса — это защита от возвратов. Если колесо не крутили, через сутки автоматически начислится 10% от чека. Прошло больше суток и бонусов нет — фото чека в «5LB техподдержку».</p>
+            </div></div>
+          </div>
+
+          <div class="acc">
+            <button class="acc__head" aria-expanded="false"><span class="acc__no">2</span><span class="acc__title">«Почему у меня сгорели бонусы?»</span><span class="acc__chevron" aria-hidden="true"></span></button>
+            <div class="acc__panel"><div style="padding:4px 24px 26px">
+              <p>Сгорает только <b>приветственный бонус</b> — он действует 30 дней с момента прокрутки колеса регистрации, и за 3 дня до сгорания приходит пуш. Бонусы с покупок, за отзывы и друзей не сгорают.</p>
+            </div></div>
+          </div>
+
+          <div class="acc">
+            <button class="acc__head" aria-expanded="false"><span class="acc__no">3</span><span class="acc__title">«Не могу прокрутить колесо»</span><span class="acc__chevron" aria-hidden="true"></span></button>
+            <div class="acc__panel"><ul class="ticks" style="padding:4px 24px 26px">
+              <li>Окно колеса — <b>24 часа после покупки</b>. Опоздал — не страшно: 10% от чека начислятся автоматически.</li>
+              <li>Для спина в профиле должен быть подтверждённый номер телефона.</li>
+              <li>Покупки с карты блогера или сотрудника колесо не открывают.</li>
+            </ul></div>
+          </div>
+
+          <div class="acc">
+            <button class="acc__head" aria-expanded="false"><span class="acc__no">4</span><span class="acc__title">«Я зарегистрировался, а приветственного колеса нет»</span><span class="acc__chevron" aria-hidden="true"></span></button>
+            <div class="acc__panel"><ul class="ticks" style="padding:4px 24px 26px">
+              <li>Приветственное колесо доступно аккаунтам, созданным <b>после 15 апреля 2026</b>.</li>
+              <li>Спин один на город — если уже крутил в этом городе, второго не будет.</li>
+              <li>Если клиента зарегистрировали на кассе, welcome-бонус 1 000 он уже получил — колесо ему не положено.</li>
+            </ul></div>
+          </div>
+
+          <div class="acc">
+            <button class="acc__head" aria-expanded="false"><span class="acc__no">5</span><span class="acc__title">«Спишите мне больше 30%»</span><span class="acc__chevron" aria-hidden="true"></span></button>
+            <div class="acc__panel"><div style="padding:4px 24px 26px">
+              <p>Лимит списания — <b>30% от суммы чека</b>, его контролирует касса, продавец изменить его не может. На сигареты, сигариллы и бустеры бонусы не действуют вообще.</p>
+            </div></div>
+          </div>
+
+          <div class="acc">
+            <button class="acc__head" aria-expanded="false"><span class="acc__no">6</span><span class="acc__title">«Скажите баланс моей жены / друга»</span><span class="acc__chevron" aria-hidden="true"></span></button>
+            <div class="acc__panel"><div style="padding:4px 24px 26px">
+              <p>Нельзя: информацию о бонусах сообщаем <b>только владельцу карты</b> и только по его номеру — это коммерческая тайна и персональные данные. Владелец всегда видит баланс сам в приложении или боте.</p>
+            </div></div>
+          </div>
+
+          <div class="acc">
+            <button class="acc__head" aria-expanded="false"><span class="acc__no">7</span><span class="acc__title">«У меня баланс ушёл в минус»</span><span class="acc__chevron" aria-hidden="true"></span></button>
+            <div class="acc__panel"><div style="padding:4px 24px 26px">
+              <p>Так бывает после возврата: бонусы, начисленные за возвращённый чек, списываются обратно, даже если клиент их уже потратил. Минус погасится следующими начислениями — ничего доплачивать не нужно.</p>
+            </div></div>
+          </div>
+
+          <div class="acc">
+            <button class="acc__head" aria-expanded="false"><span class="acc__no">8</span><span class="acc__title">«Как пригласить друга и что я получу?»</span><span class="acc__chevron" aria-hidden="true"></span></button>
+            <div class="acc__panel"><ul class="ticks" style="padding:4px 24px 26px">
+              <li>Личный код и ссылка — в разделе «Пригласи друга» в приложении или боте.</li>
+              <li><b>+50</b> бонусов, когда друг зарегистрируется по коду.</li>
+              <li><b>+200</b> бонусов за его первую покупку.</li>
+              <li><b>+250</b> бонусов за каждые 10 приглашённых друзей.</li>
+            </ul></div>
+          </div>
+
+          <div class="acc">
+            <button class="acc__head" aria-expanded="false"><span class="acc__no">9</span><span class="acc__title">«Карта не сканируется / касса пишет, что карта другого города»</span><span class="acc__chevron" aria-hidden="true"></span></button>
+            <div class="acc__panel"><ul class="ticks" style="padding:4px 24px 26px">
+              <li>Попроси клиента обновить QR в приложении (открыть карту заново) и проверь, что выбран наш город.</li>
+              <li>Карта действует только в своём городе — в нашем городе у клиента будет отдельная карта, она создастся автоматически в приложении.</li>
+              <li>QR совсем не читается — найди клиента по его номеру телефона.</li>
+              <li>Не помогло — фото ошибки в «5LB техподдержку».</li>
+            </ul></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OUTRO ============ -->
+    <section class="outro">
+      <div class="container outro__inner">
+        <h2 class="outro__title reveal">Теперь ты эксперт по бонуске</h2>
+        <p class="outro__text reveal">
+          Предлагай карту каждому покупателю, напоминай про колесо фортуны и отвечай на вопросы
+          уверенно. Если что-то пошло не так — фото в «5LB техподдержку», остальное мы разрулим.
+        </p>
+        <a href="index.html" class="btn btn--primary reveal">
+          ← Вернуться в базу знаний
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="contacts">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="brand__mark">5LB</span>
+        <p>Гид продавца по бонусной программе 5LB. Часть базы знаний продавца-консультанта — обязательна к ознакомлению.</p>
+      </div>
+      <nav class="footer__nav" aria-label="Разделы">
+        <a href="#basics">Как устроена бонуска</a>
+        <a href="#signup">Регистрация клиента</a>
+        <a href="#earn">Начисление</a>
+        <a href="#redeem">Списание на кассе</a>
+        <a href="#faq">Что отвечать клиенту</a>
+        <a href="index.html">← База знаний продавца</a>
+      </nav>
+      <p class="footer__copy">© 5LB · Внутренний документ. Горячая линия +7 924 151 25 55 · sp5lb27@mail.ru</p>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Наверх" hidden>
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 14 6-6 6 6"/></svg>
+  </button>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

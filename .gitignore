@@ -2,6 +2,8 @@
 # The site is served from this repo via GitHub Pages, and Pages exposes
 # every committed file at the public URL. Keep the .docx local only.
 docs/
+# Internal bonus-system audit: contains backend architecture and live secrets.
+BONUS_PROGRAM_FULL_DOCS.md
 
 # OS / editor junk
 .DS_Store
